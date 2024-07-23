@@ -7,35 +7,42 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
+  function aleatorio(lista) {
+    let numAleatorio = Math.floor(Math.random() * lista.length);
+    return lista[numAleatorio];
+  }
 
-  let who = ["My dad", "My mom", "The dog", "My sister", "My brother"];
-  let action = ["was using", "was eating", "crushed", "broke"];
-  let what = ["my laptop", "my television", "the ipad"];
-  let when = [
-    "before the class",
-    "when I was sleeping",
-    "while I was exercising",
-    "during my lunch",
-    "while I was praying"
+  let palo = ["♦", "♥", "♠", "♣"];
+  let numero = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K"
   ];
-  console.log("Hello Rigo");
-  document.querySelector("#excuse").innerHTML =
-    getRandom(who) +
-    " " +
-    getRandom(action) +
-    " " +
-    getRandom(what) +
-    " " +
-    getRandom(when);
+
+  let paloCarta = aleatorio(palo);
+  let elementPaloCarta = document.querySelector("#paloCarta");
+  elementPaloCarta.innerHTML = paloCarta;
+
+  let numCarta = aleatorio(numero);
+  let elementnumCarta = document.querySelector("#numCarta");
+  elementnumCarta.innerHTML = numCarta;
+
+  let elementPaloCartaAbajo = document.querySelector("#paloCartaAbajo");
+  elementPaloCartaAbajo.innerHTML = paloCarta;
+
+  elementPaloCartaAbajo.style.transform = "rotate(180deg)";
+  if (paloCarta == "♥" || paloCarta == "♦") {
+    elementPaloCartaAbajo.style.color = "red";
+    elementPaloCarta.style.color = "red";
+  }
 };
-
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
-function getRandom(anyArray) {
-  let max = anyArray.length - 1;
-  let min = 0;
-  let random = getRandomNumber(min, max);
-  return anyArray[random];
-}
