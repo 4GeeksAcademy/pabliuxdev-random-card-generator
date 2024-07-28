@@ -45,4 +45,12 @@ window.onload = function() {
     elementPaloCartaAbajo.style.color = "red";
     elementPaloCarta.style.color = "red";
   }
+
+  const refreshBtn = document.getElementById("btnRefresh");
+
+  function handleClick() {
+    window.location.reload();
+  }
+
+  refreshBtn.addEventListener("click", handleClick);
 };
