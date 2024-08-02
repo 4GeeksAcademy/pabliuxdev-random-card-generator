@@ -46,6 +46,8 @@ window.onload = function() {
     elementPaloCarta.style.color = "red";
   }
 
+  document.getElementById("btnLabel").innerHTML = "Shuffle";
+
   const refreshBtn = document.getElementById("btnRefresh");
 
   function handleClick() {
